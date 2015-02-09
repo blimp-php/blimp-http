@@ -12,13 +12,11 @@
             "source": {
                 "type": "git",
                 "url": "../blimp-base",
-                "reference": "4b7eb73e53f7e506bf368af90a9a3be9030b7f95"
+                "reference": "49166b4f01a03ae7cb55122fdfd3c51135fcba4e"
             },
             "require": {
                 "pimple/pimple": "~3.0",
-                "psr/log": "~1.0",
-                "symfony/config": "2.5.*",
-                "symfony/yaml": "2.5.*"
+                "psr/log": "~1.0"
             },
             "suggest": {
                 "monolog/monolog": "Allow logging of the application"
@@ -26,7 +24,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Blimp\\": "src"
+                    "Blimp\\Base\\": "src"
                 }
             },
             "license": [
@@ -41,7 +39,7 @@
                 }
             ],
             "description": "Blimp framework",
-            "time": "2015-02-09 16:25:24"
+            "time": "2015-02-09 17:00:27"
         },
         {
             "name": "pimple/pimple",
@@ -131,54 +129,6 @@
                 "psr-3"
             ],
             "time": "2015-02-05 09:32:11"
-        },
-        {
-            "name": "symfony/config",
-            "version": "2.5.x-dev",
-            "target-dir": "Symfony/Component/Config",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/Config.git",
-                "reference": "c7309e33b719433d5cf3845d0b5b9608609d8c8e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Config/zipball/c7309e33b719433d5cf3845d0b5b9608609d8c8e",
-                "reference": "c7309e33b719433d5cf3845d0b5b9608609d8c8e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "symfony/filesystem": "~2.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.5-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\Config\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Symfony Config Component",
-            "homepage": "http://symfony.com",
-            "time": "2015-01-03 08:01:13"
         },
         {
             "name": "symfony/debug",
@@ -297,53 +247,6 @@
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
             "time": "2015-02-05 06:58:17"
-        },
-        {
-            "name": "symfony/filesystem",
-            "version": "2.7.x-dev",
-            "target-dir": "Symfony/Component/Filesystem",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "e681ca515e1e668a551b089177867e62e03d7d2d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/e681ca515e1e668a551b089177867e62e03d7d2d",
-                "reference": "e681ca515e1e668a551b089177867e62e03d7d2d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\Filesystem\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Symfony Filesystem Component",
-            "homepage": "http://symfony.com",
-            "time": "2015-01-09 06:51:41"
         },
         {
             "name": "symfony/http-foundation",
@@ -539,53 +442,6 @@
                 "url"
             ],
             "time": "2015-02-08 07:07:45"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "2.5.x-dev",
-            "target-dir": "Symfony/Component/Yaml",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/Yaml.git",
-                "reference": "6eb40abc613d80828d55a40811c7a3ca491bc926"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/6eb40abc613d80828d55a40811c7a3ca491bc926",
-                "reference": "6eb40abc613d80828d55a40811c7a3ca491bc926",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.5-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\Yaml\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Symfony Yaml Component",
-            "homepage": "http://symfony.com",
-            "time": "2015-01-25 04:37:39"
         }
     ],
     "packages-dev": [],

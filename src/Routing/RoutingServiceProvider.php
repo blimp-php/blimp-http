@@ -20,7 +20,7 @@ class RoutingServiceProvider implements ServiceProviderInterface {
         $api['routing.config.cache'] = __DIR__;
 
         $api['routing.config.locator'] = function ($api) {
-            return new FileLocator(array($api['config.dir']));
+            return new FileLocator(array($api['routing.config.dir']));
         };
 
         $api['routing.routes'] = function ($api) {
