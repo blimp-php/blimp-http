@@ -1,0 +1,29 @@
+{
+    "name": "blimp/blimp-rest",
+    "type": "library",
+    "description": "Blimp framework",
+    "license": "LGPL-3.0+",
+    "authors": [
+        {
+            "name": "Nelson Antunes",
+            "email": "nelson.antunes@gmail.com",
+            "homepage": "http://nantunes.net",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "blimp/blimp-base": "@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Blimp\\": "src"
+        }
+    },
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "../blimp-base"
+        }
+    ]
+}
