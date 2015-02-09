@@ -1,7 +1,7 @@
 <?php
 namespace Blimp\Http;
 
-use Blimp\Base\BlimpException;
+use Blimp\Http\BlimpHttpException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -81,7 +81,7 @@ class HttpEventSubscriber implements EventSubscriberInterface {
     public function onKernelException(GetResponseForExceptionEvent $event) {
         $e = $event->getException();
 
-        if ($e instanceof BlimpException) {
+        if ($e instanceof BlimpHttpException) {
             $response = new JsonResponse($e, $e->getStatusCode(), $e->getHeaders());
         } else if ($e instanceof HttpExceptionInterface) {
             $response = new JsonResponse(["error" => $e->getMessage(), "code" => $e->getStatusCode()], $e->getStatusCode(), $e->getHeaders());
