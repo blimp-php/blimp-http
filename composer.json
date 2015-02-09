@@ -12,7 +12,10 @@
         }
     ],
     "require": {
-        "blimp/blimp-base": "@dev"
+        "blimp/blimp-base": "@dev",
+        "symfony/http-foundation": "2.5.*",
+        "symfony/http-kernel": "2.5.*",
+        "symfony/routing": "2.5.*"
     },
     "autoload": {
         "psr-4": {
