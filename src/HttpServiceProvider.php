@@ -37,7 +37,9 @@ class HttpServiceProvider implements ServiceProviderInterface {
         };
 
         $api['http.session'] = function () {
-            return new Session();
+            $session = new Session();
+            $session->start();
+            return $session;
         };
 
         $api['http.process'] = $api->protect(function () use ($api) {

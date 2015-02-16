@@ -1,5 +1,5 @@
 <?php
-namespace Blimp\Base;
+namespace Blimp\Http;
 
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
