@@ -12,6 +12,10 @@ use Symfony\Component\HttpKernel\HttpKernel;
 
 class HttpServiceProvider implements ServiceProviderInterface {
     public function register(Container $api) {
+        $api['http.utils'] = function($api) {
+            return new HttpUtils($api);
+        };
+
         $api['http.dispatcher'] = function ($api) {
             return new EventDispatcher();
         };

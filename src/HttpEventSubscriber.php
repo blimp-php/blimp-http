@@ -41,7 +41,7 @@ class HttpEventSubscriber implements EventSubscriberInterface {
             } else if (strpos($content_type, 'application/x-www-form-urlencoded') === 0) {
                 $data = $request->request->all();
             } else if (strpos($content_type, 'multipart/form-data') === 0) {
-                $data = $request->request->all();
+                $data = json_decode($request->request->get('data'), true);
             }
         } else if($request->getMethod() === 'GET' || $request->getMethod() === 'HEAD') {
             $data = $request->query->all();
