@@ -1,6 +1,9 @@
 <?php
 namespace Blimp\Http;
 
+use Blimp\Http\BlimpHttpException;
+use Symfony\Component\HttpFoundation\Response;
+
 class HttpUtils {
     protected $api;
 
@@ -8,7 +11,16 @@ class HttpUtils {
         $this->api = $api;
     }
 
-    public function guessContentLang($languages) {
+    public function guessContentLang($locale, $languages) {
+        if(!empty($locale)) {
+            // TODO get it from somewhere
+            if(in_array($locale, ['pt-PT', 'en-US', 'en'])) {
+                $contentLang = $locale;
+            } else {
+                throw new BlimpHttpException(Response::HTTP_NOT_ACCEPTABLE, 'Requested language not supported', ["requested" => $locale, "available" => ['pt-PT', 'en-US', 'en']]);
+            }
+        }
+
         if(!empty($languages)) {
             foreach ($languages as $lang) {
                 $lang = str_replace('_', '-', $lang);
