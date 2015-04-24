@@ -4,8 +4,8 @@ namespace Blimp\Http;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class BlimpHttpException extends HttpException implements \JsonSerializable {
-    private $internalCode;
-    private $description;
+    protected $internalCode;
+    protected $description;
 
     public function __construct($statusCode = 500, $message = null, $description = null, $previous = NULL, array $headers = array()) {
         parent::__construct($statusCode, $message, $previous, $headers);

@@ -14,7 +14,7 @@ use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 class HttpEventSubscriber implements EventSubscriberInterface {
-    private $api;
+    protected $api;
 
     public function __construct($api) {
         $this->api = $api;
