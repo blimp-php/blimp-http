@@ -108,7 +108,7 @@ class HttpEventSubscriber implements EventSubscriberInterface {
             $response->headers->set('Access-Control-Max-Age', '1728000');
             $response->headers->set('Access-Control-Allow-Credentials', 'false');
             $response->headers->set('Access-Control-Allow-Methods', 'HEAD, GET, POST, PUT, PATCH, DELETE, OPTIONS');
-            $response->headers->set('Access-Control-Allow-Headers', 'Authorization, Cache-Control');
+            $response->headers->set('Access-Control-Allow-Headers', 'Authorization, Cache-Control, Content-Type, Accept');
         }
     }
 }

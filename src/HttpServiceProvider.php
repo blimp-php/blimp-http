@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\HttpKernel;
 
 class HttpServiceProvider implements ServiceProviderInterface {
     public function register(Container $api) {
-        $api['http.utils'] = function($api) {
+        $api['http.utils'] = function ($api) {
             return new HttpUtils($api);
         };
 
@@ -75,40 +75,39 @@ class HttpServiceProvider implements ServiceProviderInterface {
 }
 
 function proper_parse_str($str) {
-  # result array
-  $arr = array();
+    # result array
+    $arr = array();
 
-  # split on outer delimiter
-  $pairs = explode('&', $str);
+    # split on outer delimiter
+    $pairs = explode('&', $str);
 
-  # loop through each pair
-  foreach ($pairs as $i) {
-    # split into name and value
-    list($name,$value) = explode('=', $i, 2);
+    # loop through each pair
+    foreach ($pairs as $i) {
+        # split into name and value
+        $parts = explode('=', $i, 2);
 
-    $name = urldecode($name);
-    $value = urldecode($value);
+        $name = !empty($parts[0]) ? urldecode($parts[0]) : '';
+        $value = !empty($parts[1]) ? urldecode($parts[1]) : '';
 
-    # if name already exists
-    if( isset($arr[$name]) ) {
-      # stick multiple values into an array
-      if( is_array($arr[$name]) ) {
-        $arr[$name][] = $value;
-      }
-      else {
-        $arr[$name] = array($arr[$name], $value);
-      }
+        # if name already exists
+        if (isset($arr[$name])) {
+            # stick multiple values into an array
+            if (is_array($arr[$name])) {
+                $arr[$name][] = $value;
+            } else {
+                $arr[$name] = array($arr[$name], $value);
+            }
+        }
+        # otherwise, simply stick it in a scalar
+        else {
+            $arr[$name] = $value;
+        }
     }
-    # otherwise, simply stick it in a scalar
-    else {
-      $arr[$name] = $value;
-    }
-  }
 
-  # return result array
-  return $arr;
+    # return result array
+    return $arr;
 }
 
-if(!empty($_SERVER['QUERY_STRING'])) {
+if (!empty($_SERVER['QUERY_STRING'])) {
     $_GET = proper_parse_str($_SERVER['QUERY_STRING']);
 }
