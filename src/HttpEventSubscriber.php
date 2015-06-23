@@ -6,6 +6,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseForControllerResultEvent;
@@ -71,10 +72,12 @@ class HttpEventSubscriber implements EventSubscriberInterface {
 
         $this->addCorsHeaders($event->getRequest(), $response);
 
-        $headers = $response->headers;
+        if(!($response instanceof StreamedResponse)) {
+            $headers = $response->headers;
 
-        if (!$headers->has('Content-Length') && !$headers->has('Transfer-Encoding')) {
-            $headers->set('Content-Length', strlen($response->getContent()));
+            if (!$headers->has('Content-Length') && !$headers->has('Transfer-Encoding')) {
+                $headers->set('Content-Length', strlen($response->getContent()));
+            }
         }
     }
 
